@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'maven'
 
 group = 'kazusato'
 version = '0.0.1-SNAPSHOT'
@@ -15,4 +16,12 @@ dependencies {
     testCompile group: 'org.junit.platform', name: 'junit-platform-engine', version: '1.2.0'
     testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.2.0'
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.10.0'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file:${System.getProperty('user.home')}/.m2/repository")
+        }
+    }
 }
